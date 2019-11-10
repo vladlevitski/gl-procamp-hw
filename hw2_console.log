@@ -1,0 +1,795 @@
+Start of the log not saved properly, because not enough lines can be stored in the console terminal. 
+So first and second task from home work redone at the end again.
+
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature1 -> origin)
+λ #3. Create a situation for 'git fetch --prune' to work
+
+λ git checkout -b test_branch
+Switched to a new branch 'test_branch'
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git push -u origin test_branch:test_branch
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'test_branch' on GitHub by visiting:
+remote:      https://github.com/vladlevitski/gl-procamp-hw/pull/new/test_branch
+remote:
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ * [new branch]      test_branch -> test_branch
+Branch 'test_branch' set up to track remote branch 'test_branch' from 'origin'.
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ cd ..\another_user\gl-procamp-hw\
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git fetch
+From https://github.com/vladlevitski/gl-procamp-hw
+ * [new branch]      test_branch -> origin/test_branch
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git branch -a
+* hw2_feature2
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+  remotes/origin/test_branch
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ cd ..\..\gl-procamp-hw\
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ git checkout test_branch
+Switched to branch 'test_branch'
+Your branch is up to date with 'origin/test_branch'.
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git push origin --delete test_branch
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ - [deleted]         test_branch
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ cd ..\another_user\gl-procamp-hw\
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git branch -a
+* hw2_feature2
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+  remotes/origin/test_branch
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git fetch --prune
+From https://github.com/vladlevitski/gl-procamp-hw
+ - [deleted]         (none)     -> origin/test_branch
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git branch -a
+* hw2_feature2
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ #4. Try merging one branch into the other
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ notepad.exe hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ cat hw2_file2.txt
+1
+2
+3
+4
+5
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git status
+On branch hw2_feature2
+Your branch is up to date with 'origin/hw2_feature2'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git add hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git commit -m "update hw2_file2.txt"
+[hw2_feature2 23840a5] update hw2_file2.txt
+ 1 file changed, 5 insertions(+)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git checkout hw2_feature1
+Switched to a new branch 'hw2_feature1'
+Branch 'hw2_feature1' set up to track remote branch 'hw2_feature1' from 'origin'.
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git merge hw2_feature2
+Merge made by the 'recursive' strategy.
+ hw2_file2.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+ create mode 100644 hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is ahead of 'origin/hw2_feature1' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 520 bytes | 130.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/vladlevitski/gl-procamp-hw.git
+   12ef71e..788e176  hw2_feature1 -> hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ #5. Stash changes, change branch back and forth, pop stashed changes
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ notepad.exe hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ cat hw2_file2.txt
+1
+2
+3
+4
+5
+6
+7
+8
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash
+Saved working directory and index state WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+nothing to commit, working tree clean
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ notepad.exe hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ cat hw2_file2.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash list
+stash@{0}: WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop
+error: Your local changes to the following files would be overwritten by merge:
+        hw2_file2.txt
+Please commit your changes or stash them before you merge.
+Aborting
+The stash entry is kept in case you need it again.
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash
+Saved working directory and index state WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash list
+stash@{0}: WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+stash@{1}: WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop 0
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (bc39796bb3f8d82aa5a76ac27ca47247a6d0c695)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ cat hw2_file2.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash
+Saved working directory and index state WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop 1
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{1} (382c00ec28eb4613838ff2e1b34c4eb6fab4f8c3)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ cat hw2_file2.txt
+1
+2
+3
+4
+5
+6
+7
+8
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ #6. Repeat #5 with untracked files on the tree
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ touch hw2_file3.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hw2_file3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash
+Saved working directory and index state WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash list
+stash@{0}: WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+stash@{1}: WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hw2_file3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git add hw2_file3.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hw2_file3.txt
+
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash
+Saved working directory and index state WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+nothing to commit, working tree clean
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hw2_file3.txt
+
+Dropped refs/stash@{0} (e654450229dac90b4885805f7006131439bfa525)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hw2_file3.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+Dropped refs/stash@{0} (28538e5b31470f18cd5cd9df3a8c366d885e49d4)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash
+Saved working directory and index state WIP on hw2_feature1: 788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+nothing to commit, working tree clean
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hw2_file3.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+Dropped refs/stash@{0} (0afa340f51f51a9f315ed88a9a8354a6e3f62bea)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git reset HEAD hw2_file3.txt
+Unstaged changes after reset:
+M       hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hw2_file3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git diff hw2_file2.txt
+diff --git a/hw2_file2.txt b/hw2_file2.txt
+index 85954ea..896ddd8 100644
+--- a/hw2_file2.txt
++++ b/hw2_file2.txt
+@@ -2,4 +2,7 @@
+ 2
+ 3
+ 4
+-5
+\ No newline at end of file
++5
++6
++7
++8
+\ No newline at end of file
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop
+error: Your local changes to the following files would be overwritten by merge:
+        hw2_file2.txt
+Please commit your changes or stash them before you merge.
+Aborting
+The stash entry is kept in case you need it again.
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hw2_file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hw2_file3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git add .
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   hw2_file2.txt
+        new file:   hw2_file3.txt
+
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git stash pop
+Auto-merging hw2_file2.txt
+CONFLICT (content): Merge conflict in hw2_file2.txt
+The stash entry is kept in case you need it again.
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hw2_file3.txt
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both modified:   hw2_file2.txt
+
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git diff hw2_file2.txt
+diff --cc hw2_file2.txt
+index 896ddd8,83b2a16..0000000
+--- a/hw2_file2.txt
++++ b/hw2_file2.txt
+@@@ -5,4 -5,5 +5,9 @@@
+  5
+  6
+  7
+- 8
+++<<<<<<< Updated upstream
++ 8
+ -9
+++=======
+++8
+++9
+++>>>>>>> Stashed changes
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ notepad.exe hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ cat hw2_file2.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   hw2_file3.txt
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both modified:   hw2_file2.txt
+
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git add hw2_file2.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git status
+On branch hw2_feature1
+Your branch is up to date with 'origin/hw2_feature1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   hw2_file2.txt
+        new file:   hw2_file3.txt
+
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git commit -m"Merged stashed changes and added new file"
+[hw2_feature1 ae62d39] Merged stashed changes and added new file
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+ create mode 100644 hw2_file3.txt
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 323 bytes | 40.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vladlevitski/gl-procamp-hw.git
+   788e176..ae62d39  hw2_feature1 -> hw2_feature1
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature1 -> origin)
+λ git checkout hw2_feature2
+Switched to branch 'hw2_feature2'
+Your branch is ahead of 'origin/hw2_feature2' by 1 commit.
+  (use "git push" to publish your local commits)
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git push
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/vladlevitski/gl-procamp-hw.git
+   be5ffad..23840a5  hw2_feature2 -> hw2_feature2
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ cd ..\..\gl-procamp-hw\
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git status
+On branch test_branch
+Your branch is based on 'origin/test_branch', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+nothing to commit, working tree clean
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git branch -a
+  feature1_branch_from_2nd_commit
+  feature2
+  hw2_feature1
+  hw2_feature2
+  master
+* test_branch
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git fetch
+remote: Enumerating objects: 11, done.
+Unpacking objects: 100% (8/8), done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 8 (delta 3), reused 7 (delta 2), pack-reused 0
+From https://github.com/vladlevitski/gl-procamp-hw
+   12ef71e..ae62d39  hw2_feature1 -> origin/hw2_feature1
+   be5ffad..23840a5  hw2_feature2 -> origin/hw2_feature2
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git fetch --prune
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git branch -a
+  feature1_branch_from_2nd_commit
+  feature2
+  hw2_feature1
+  hw2_feature2
+  master
+* test_branch
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+
+C:\Users\Levro\git\gl-procamp-hw (test_branch -> origin)
+λ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ git branch -D test_branch
+Deleted branch test_branch (was 12ef71e).
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ git branch -a
+  feature1_branch_from_2nd_commit
+  feature2
+  hw2_feature1
+  hw2_feature2
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ # 1. Push branches using syntax suggested by git, as well as 'git push -u origin locaname:remotename', try out 'git branch -a', 'git branch -vv'
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ git checkout -b hw3_feture3
+Switched to a new branch 'hw3_feture3'
+
+C:\Users\Levro\git\gl-procamp-hw (hw3_feture3 -> origin)
+λ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ git branch -D hw3_feture3
+Deleted branch hw3_feture3 (was 67f55a5).
+
+C:\Users\Levro\git\gl-procamp-hw (master -> origin)
+λ git checkout -b hw2_feature3
+Switched to a new branch 'hw2_feature3'
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature3 -> origin)
+λ git push -u origin hw2_feature3:hw2_feature3
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'hw2_feature3' on GitHub by visiting:
+remote:      https://github.com/vladlevitski/gl-procamp-hw/pull/new/hw2_feature3
+remote:
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ * [new branch]      hw2_feature3 -> hw2_feature3
+Branch 'hw2_feature3' set up to track remote branch 'hw2_feature3' from 'origin'.
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature3 -> origin)
+λ gi tbranch -a
+"gi" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature3 -> origin)
+λ git branch -a
+  feature1_branch_from_2nd_commit
+  feature2
+  hw2_feature1
+  hw2_feature2
+* hw2_feature3
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/hw2_feature3
+  remotes/origin/master
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature3 -> origin)
+λ git branch -vv
+  feature1_branch_from_2nd_commit 0970102 [origin/feature1_branch_from_2nd_commit] [HW-1] Create new branch from 2nd commit and add file9
+  feature2                        2ce8ed5 [origin/feature2] [HW-1] Add new file
+  hw2_feature1                    12ef71e [origin/hw2_feature1: behind 4] Add new one file for HW2 at hw2_feature1 branch
+  hw2_feature2                    be5ffad [origin/hw2_feature2: behind 1] Add new one file for HW2 at hw2_feature2 branch
+* hw2_feature3                    67f55a5 [origin/hw2_feature3] Merge branch 'feature1_branch_from_2nd_commit'
+  master                          67f55a5 [origin/master] Merge branch 'feature1_branch_from_2nd_commit'
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature3 -> origin)
+λ # 2. Do a copy of your repository(simulating another user), push some commits, branches. Verify that the other user gets all the info by using 'git fetch'
+
+C:\Users\Levro\git\gl-procamp-hw (hw2_feature3 -> origin)
+λ cd ..\another_user\gl-procamp-hw\
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git branch -a
+  hw2_feature1
+* hw2_feature2
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/master
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git fetch
+From https://github.com/vladlevitski/gl-procamp-hw
+ * [new branch]      hw2_feature3 -> origin/hw2_feature3
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git branch -a
+  hw2_feature1
+* hw2_feature2
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/feature1_branch_from_2nd_commit
+  remotes/origin/feature2
+  remotes/origin/hw2_feature1
+  remotes/origin/hw2_feature2
+  remotes/origin/hw2_feature3
+  remotes/origin/master
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature2 -> origin)
+λ git checkout hw2_feature3
+Switched to a new branch 'hw2_feature3'
+Branch 'hw2_feature3' set up to track remote branch 'hw2_feature3' from 'origin'.
+
+C:\Users\Levro\git\another_user\gl-procamp-hw (hw2_feature3 -> origin)
+λ
