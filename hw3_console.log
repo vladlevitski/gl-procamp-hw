@@ -1,0 +1,1168 @@
+C:\Users\ezlevvl\git\gl-procamp-hw (master -> origin)
+λ ls -la
+total 38
+drwxr-xr-x 1 ezlevvl 1049089     0 Nov 11 15:30 ./
+drwxr-xr-x 1 ezlevvl 1049089     0 Nov 11 15:30 ../
+drwxr-xr-x 1 ezlevvl 1049089     0 Nov 11 15:36 .git/
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file1
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file2
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file3
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file4
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file5
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file6
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file7
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file8
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file9
+-rw-r--r-- 1 ezlevvl 1049089 26653 Nov 11 15:30 hw2_console.log
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 hw2_file1.txt
+-rw-r--r-- 1 ezlevvl 1049089    27 Nov 11 15:30 hw2_file2.txt
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 hw2_file3.txt
+-rw-r--r-- 1 ezlevvl 1049089    54 Nov 11 15:30 README.md
+
+C:\Users\ezlevvl\git\gl-procamp-hw (master -> origin)
+λ git checkout -b hw3_feature1
+Switched to a new branch 'hw3_feature1'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ touch hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ # 1. Amend commits.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        hw3_file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git add hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit -m"Add new file"
+[hw3_feature1 7380381] Add new file
+ 1 file changed, 3 insertions(+)
+ create mode 100644 hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+nothing to commit, working tree clean
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git diff hw3_file1.txt
+diff --git a/hw3_file1.txt b/hw3_file1.txt
+index 5f5fbe7..85954ea 100644
+--- a/hw3_file1.txt
++++ b/hw3_file1.txt
+@@ -1,3 +1,5 @@
+ 1
+ 2
+-3
+\ No newline at end of file
++3
++4
++5
+\ No newline at end of file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git add hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit --amend
+[hw3_feature1 b50c9e7] Add new file, and update it with amend
+ Date: Mon Nov 11 15:47:15 2019 +0200
+ 1 file changed, 5 insertions(+)
+ create mode 100644 hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git push -u origin hw3_feature1:hw3_feature1
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 309 bytes | 154.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'hw3_feature1' on GitHub by visiting:
+remote:      https://github.com/vladlevitski/gl-procamp-hw/pull/new/hw3_feature1
+remote:
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ * [new branch]      hw3_feature1 -> hw3_feature1
+Branch 'hw3_feature1' set up to track remote branch 'hw3_feature1' from 'origin'.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ # 2. Use 'git reset' with soft/mixed/hard options
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+nothing to commit, working tree clean
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git add hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit -m"Update hw3_file1.txt"
+[hw3_feature1 5793a80] Update hw3_file1.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+5793a80 (HEAD -> hw3_feature1) Update hw3_file1.txt
+b50c9e7 (origin/hw3_feature1) Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git reset --soft HEAD~1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+b50c9e7 (HEAD -> hw3_feature1, origin/hw3_feature1) Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   hw3_file1.txt
+
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit -m"Update hw3_file1.txt"
+[hw3_feature1 5256650] Update hw3_file1.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git reset --mixed HEAD~1
+Unstaged changes after reset:
+M       hw3_file1.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+b50c9e7 (HEAD -> hw3_feature1, origin/hw3_feature1) Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit hw3_file1.txt -m"Update hw3_file1.txt"
+[hw3_feature1 b96093e] Update hw3_file1.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+b96093e (HEAD -> hw3_feature1) Update hw3_file1.txt
+b50c9e7 (origin/hw3_feature1) Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git reset --hard HEAD~1
+HEAD is now at b50c9e7 Add new file, and update it with amend
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+b50c9e7 (HEAD -> hw3_feature1, origin/hw3_feature1) Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+nothing to commit, working tree clean
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ # 3. Make two commits, push, reset them into one commit, try to push without force, do pull(intentionally messing up the repo), now fix the current situation and make that commit overwrite the remote
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ ls -la
+total 39
+drwxr-xr-x 1 ezlevvl 1049089     0 Nov 11 15:58 ./
+drwxr-xr-x 1 ezlevvl 1049089     0 Nov 11 15:30 ../
+drwxr-xr-x 1 ezlevvl 1049089     0 Nov 11 15:58 .git/
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file1
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file2
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file3
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file4
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file5
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file6
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file7
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file8
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file9
+-rw-r--r-- 1 ezlevvl 1049089 26653 Nov 11 15:30 hw2_console.log
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 hw2_file1.txt
+-rw-r--r-- 1 ezlevvl 1049089    27 Nov 11 15:30 hw2_file2.txt
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 hw2_file3.txt
+-rw-r--r-- 1 ezlevvl 1049089    13 Nov 11 15:58 hw3_file1.txt
+-rw-r--r-- 1 ezlevvl 1049089    54 Nov 11 15:30 README.md
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ touch hw3_file2.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        hw3_file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git add hw3_file2.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit hw3_file2.txt -m"Add hw3_file2.txt"
+[hw3_feature1 81b8c47] Add hw3_file2.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file2.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ touch hw3_file3.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git add hw3_file3.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git commit -m"Add hw3_file3.txt"
+[hw3_feature1 908eff8] Add hw3_file3.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file3.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git push
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 454 bytes | 227.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/vladlevitski/gl-procamp-hw.git
+   b50c9e7..908eff8  hw3_feature1 -> hw3_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+908eff8 (HEAD -> hw3_feature1, origin/hw3_feature1) Add hw3_file3.txt
+81b8c47 Add hw3_file2.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git rebase --interactive 81b8c47
+hint: Waiting for your editor to close the file...
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+Successfully rebased and updated refs/heads/hw3_feature1.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+nothing to commit, working tree clean
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+908eff8 (HEAD -> hw3_feature1, origin/hw3_feature1) Add hw3_file3.txt
+81b8c47 Add hw3_file2.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git rebase --interactive b50c9e7
+[detached HEAD c5e7653] Add hw3_file2.txt and hw3_file3.txt
+ Date: Mon Nov 11 16:03:37 2019 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file2.txt
+ create mode 100644 hw3_file3.txt
+Successfully rebased and updated refs/heads/hw3_feature1.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+c5e7653 (HEAD -> hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git push
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ ! [rejected]        hw3_feature1 -> hw3_feature1 (non-fast-forward)
+error: failed to push some refs to 'https://github.com/vladlevitski/gl-procamp-hw.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git pull
+Merge made by the 'recursive' strategy.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is ahead of 'origin/hw3_feature1' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+b7efc6a (HEAD -> hw3_feature1) Merge branch 'hw3_feature1' of https://github.com/vladlevitski/gl-procamp-hw into hw3_feature1
+c5e7653 Add hw3_file2.txt and hw3_file3.txt
+908eff8 (origin/hw3_feature1) Add hw3_file3.txt
+81b8c47 Add hw3_file2.txt
+b50c9e7 Add new file, and update it with amend
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git rebase
+First, rewinding head to replay your work on top of it...
+Applying: Add hw3_file2.txt and hw3_file3.txt
+Using index info to reconstruct a base tree...
+Falling back to patching base and 3-way merge...
+No changes -- Patch already applied.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+908eff8 (HEAD -> hw3_feature1, origin/hw3_feature1) Add hw3_file3.txt
+81b8c47 Add hw3_file2.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git rebase --interactive b50c9e7
+[detached HEAD 2abffc9] Add hw3_file2.txt and hw3_file3.txt
+ Date: Mon Nov 11 16:03:37 2019 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file2.txt
+ create mode 100644 hw3_file3.txt
+Successfully rebased and updated refs/heads/hw3_feature1.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+2abffc9 (HEAD -> hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git push --force
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 282 bytes | 282.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ + 908eff8...2abffc9 hw3_feature1 -> hw3_feature1 (forced update)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+2abffc9 (HEAD -> hw3_feature1, origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ # 4. Take a look at the reflog, investigate the actions that you've done when you were doing 1-3.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git reflog
+2abffc9 (HEAD -> hw3_feature1, origin/hw3_feature1) HEAD@{0}: rebase -i (finish): returning to refs/heads/hw3_feature1
+2abffc9 (HEAD -> hw3_feature1, origin/hw3_feature1) HEAD@{1}: rebase -i (squash): Add hw3_file2.txt and hw3_file3.txt
+81b8c47 HEAD@{2}: rebase -i (start): checkout b50c9e7
+908eff8 HEAD@{3}: rebase finished: returning to refs/heads/hw3_feature1
+908eff8 HEAD@{4}: rebase: checkout refs/remotes/origin/hw3_feature1
+b7efc6a HEAD@{5}: pull: Merge made by the 'recursive' strategy.
+c5e7653 HEAD@{6}: rebase -i (finish): returning to refs/heads/hw3_feature1
+c5e7653 HEAD@{7}: rebase -i (squash): Add hw3_file2.txt and hw3_file3.txt
+81b8c47 HEAD@{8}: rebase -i (start): checkout b50c9e7
+908eff8 HEAD@{9}: rebase -i (finish): returning to refs/heads/hw3_feature1
+908eff8 HEAD@{10}: rebase -i (start): checkout 81b8c47
+908eff8 HEAD@{11}: commit: Add hw3_file3.txt
+81b8c47 HEAD@{12}: commit: Add hw3_file2.txt
+b50c9e7 HEAD@{13}: reset: moving to HEAD~1
+b96093e HEAD@{14}: commit: Update hw3_file1.txt
+b50c9e7 HEAD@{15}: reset: moving to HEAD~1
+5256650 HEAD@{16}: commit: Update hw3_file1.txt
+b50c9e7 HEAD@{17}: reset: moving to HEAD~1
+5793a80 HEAD@{18}: commit: Update hw3_file1.txt
+b50c9e7 HEAD@{19}: reset: moving to HEAD~1
+bbaabcd HEAD@{20}: commit: empty commit
+b50c9e7 HEAD@{21}: commit (amend): Add new file, and update it with amend
+7380381 HEAD@{22}: commit: Add new file
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{23}: checkout: moving from master to hw3_feature1
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{24}: clone: from https://github.com/vladlevitski/gl-procamp-hw.git
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ # 5. Cherry-pick specific commit from another branch, cherry-pick whole another branch(HEAD..branch), investigate the history, merge with it
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (master -> origin)
+λ git checkout -b hw3_feature2
+Switched to a new branch 'hw3_feature2'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ touch hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git add hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git commit -m"Add hw3_file4.txt on hw3_feature2 branch"
+[hw3_feature2 8b08fc2] Add hw3_file4.txt on hw3_feature2 branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git log --oneline -n 5
+8b08fc2 (HEAD -> hw3_feature2) Add hw3_file4.txt on hw3_feature2 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+788e176 Merge branch 'hw2_feature2' into hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git checkout hw3_feature1
+Switched to branch 'hw3_feature1'
+Your branch is up to date with 'origin/hw3_feature1'.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git cherry-pick 8b08fc2
+[hw3_feature1 1aa72d5] Add hw3_file4.txt on hw3_feature2 branch
+ Date: Mon Nov 11 18:10:02 2019 +0200
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+1aa72d5 (HEAD -> hw3_feature1) Add hw3_file4.txt on hw3_feature2 branch
+2abffc9 (origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git checkout -
+Switched to branch 'hw3_feature2'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ cat hw3_file4.txt
+123
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git status
+On branch hw3_feature2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file4.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git commit hw3_file4.txt -m"Update in file hw3_file4.txt"
+[hw3_feature2 218d484] Update in file hw3_file4.txt
+ 1 file changed, 1 insertion(+)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ cat hw3_file4.txt
+123
+456
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git commit hw3_file4.txt -m"New one update in file hw3_file4.txt"
+[hw3_feature2 dd5769e] New one update in file hw3_file4.txt
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git log --oneline -n 5
+dd5769e (HEAD -> hw3_feature2) New one update in file hw3_file4.txt
+218d484 Update in file hw3_file4.txt
+8b08fc2 Add hw3_file4.txt on hw3_feature2 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git checkout -
+Switched to branch 'hw3_feature1'
+Your branch is ahead of 'origin/hw3_feature1' by 1 commit.
+  (use "git push" to publish your local commits)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+1aa72d5 (HEAD -> hw3_feature1) Add hw3_file4.txt on hw3_feature2 branch
+2abffc9 (origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git reset --hard HEAD~1
+HEAD is now at 2abffc9 Add hw3_file2.txt and hw3_file3.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+2abffc9 (HEAD -> hw3_feature1, origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git cherry-pick 218d484
+error: could not apply 218d484... Update in file hw3_file4.txt
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add <paths>' or 'git rm <paths>'
+hint: and commit the result with 'git commit'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+You are currently cherry-picking commit 218d484.
+  (fix conflicts and run "git cherry-pick --continue")
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+
+        deleted by us:   hw3_file4.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git add hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git status
+On branch hw3_feature1
+Your branch is up to date with 'origin/hw3_feature1'.
+
+You are currently cherry-picking commit 218d484.
+  (all conflicts fixed: run "git cherry-pick --continue")
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Changes to be committed:
+
+        new file:   hw3_file4.txt
+
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git cherry-pick --continue
+[hw3_feature1 4bf7d5a] Update in file hw3_file4.txt
+ Date: Mon Nov 11 18:14:26 2019 +0200
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hw3_file4.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+4bf7d5a (HEAD -> hw3_feature1) Update in file hw3_file4.txt
+2abffc9 (origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ ls -l
+total 32
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file1
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file2
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file3
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file4
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file5
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file6
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file7
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file8
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 file9
+-rw-r--r-- 1 ezlevvl 1049089 26653 Nov 11 15:30 hw2_console.log
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 hw2_file1.txt
+-rw-r--r-- 1 ezlevvl 1049089    27 Nov 11 15:30 hw2_file2.txt
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 15:30 hw2_file3.txt
+-rw-r--r-- 1 ezlevvl 1049089    13 Nov 11 18:15 hw3_file1.txt
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 18:15 hw3_file2.txt
+-rw-r--r-- 1 ezlevvl 1049089     0 Nov 11 18:15 hw3_file3.txt
+-rw-r--r-- 1 ezlevvl 1049089     3 Nov 11 18:16 hw3_file4.txt
+-rw-r--r-- 1 ezlevvl 1049089    54 Nov 11 15:30 README.md
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ cat hw3_file4.txt
+123
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git checkout -
+Switched to branch 'hw3_feature2'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git log --oneline -n 5
+dd5769e (HEAD -> hw3_feature2) New one update in file hw3_file4.txt
+218d484 Update in file hw3_file4.txt
+8b08fc2 Add hw3_file4.txt on hw3_feature2 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git cherry-pick dd5769e
+The previous cherry-pick is now empty, possibly due to conflict resolution.
+If you wish to commit it anyway, use:
+
+    git commit --allow-empty
+
+Otherwise, please use 'git reset'
+On branch hw3_feature2
+You are currently cherry-picking commit dd5769e.
+
+nothing to commit, working tree clean
+
+λ git commit --allow-empty
+[hw3_feature2 d74c712] New one update in file hw3_file4.txt
+ Date: Mon Nov 11 18:15:06 2019 +0200
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git log --oneline -n 5
+d74c712 (HEAD -> hw3_feature2) New one update in file hw3_file4.txt
+dd5769e New one update in file hw3_file4.txt
+218d484 Update in file hw3_file4.txt
+8b08fc2 Add hw3_file4.txt on hw3_feature2 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git reset HEAD~1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git log --oneline -n 5
+dd5769e (HEAD -> hw3_feature2) New one update in file hw3_file4.txt
+218d484 Update in file hw3_file4.txt
+8b08fc2 Add hw3_file4.txt on hw3_feature2 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature2 -> origin)
+λ git checkout -
+Switched to branch 'hw3_feature1'
+Your branch is ahead of 'origin/hw3_feature1' by 1 commit.
+  (use "git push" to publish your local commits)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+4bf7d5a (HEAD -> hw3_feature1) Update in file hw3_file4.txt
+2abffc9 (origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git cherry-pick dd5769e
+[hw3_feature1 7ad43b5] New one update in file hw3_file4.txt
+ Date: Mon Nov 11 18:15:06 2019 +0200
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git log --oneline -n 5
+7ad43b5 (HEAD -> hw3_feature1) New one update in file hw3_file4.txt
+4bf7d5a Update in file hw3_file4.txt
+2abffc9 (origin/hw3_feature1) Add hw3_file2.txt and hw3_file3.txt
+b50c9e7 Add new file, and update it with amend
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git merge hw3_feature2
+Merge made by the 'recursive' strategy.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git reflog -n 5
+42c15cd (HEAD -> hw3_feature1) HEAD@{0}: merge hw3_feature2: Merge made by the 'recursive' strategy.
+7ad43b5 HEAD@{1}: cherry-pick: New one update in file hw3_file4.txt
+4bf7d5a HEAD@{2}: checkout: moving from hw3_feature2 to hw3_feature1
+dd5769e (hw3_feature2) HEAD@{3}: reset: moving to HEAD~1
+d74c712 HEAD@{4}: commit (cherry-pick): New one update in file hw3_file4.txt
+dd5769e (hw3_feature2) HEAD@{5}: checkout: moving from hw3_feature1 to hw3_feature2
+4bf7d5a HEAD@{6}: commit (cherry-pick): Update in file hw3_file4.txt
+2abffc9 (origin/hw3_feature1) HEAD@{7}: reset: moving to HEAD~1
+1aa72d5 HEAD@{8}: checkout: moving from hw3_feature2 to hw3_feature1
+dd5769e (hw3_feature2) HEAD@{9}: commit: New one update in file hw3_file4.txt
+218d484 HEAD@{10}: commit: Update in file hw3_file4.txt
+8b08fc2 HEAD@{11}: checkout: moving from hw3_feature1 to hw3_feature2
+1aa72d5 HEAD@{12}: cherry-pick: Add hw3_file4.txt on hw3_feature2 branch
+2abffc9 (origin/hw3_feature1) HEAD@{13}: checkout: moving from hw3_feature2 to hw3_feature1
+8b08fc2 HEAD@{14}: checkout: moving from hw3_feature1 to hw3_feature2
+2abffc9 (origin/hw3_feature1) HEAD@{15}: checkout: moving from master to hw3_feature1
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{16}: checkout: moving from hw3_feature2 to master
+8b08fc2 HEAD@{17}: commit: Add hw3_file4.txt on hw3_feature2 branch
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{18}: checkout: moving from master to hw3_feature2
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{19}: checkout: moving from hw3_feature1 to master
+2abffc9 (origin/hw3_feature1) HEAD@{20}: rebase -i (finish): returning to refs/heads/hw3_feature1
+2abffc9 (origin/hw3_feature1) HEAD@{21}: rebase -i (squash): Add hw3_file2.txt and hw3_file3.txt
+81b8c47 HEAD@{22}: rebase -i (start): checkout b50c9e7
+908eff8 HEAD@{23}: rebase finished: returning to refs/heads/hw3_feature1
+908eff8 HEAD@{24}: rebase: checkout refs/remotes/origin/hw3_feature1
+b7efc6a HEAD@{25}: pull: Merge made by the 'recursive' strategy.
+c5e7653 HEAD@{26}: rebase -i (finish): returning to refs/heads/hw3_feature1
+c5e7653 HEAD@{27}: rebase -i (squash): Add hw3_file2.txt and hw3_file3.txt
+81b8c47 HEAD@{28}: rebase -i (start): checkout b50c9e7
+908eff8 HEAD@{29}: rebase -i (finish): returning to refs/heads/hw3_feature1
+908eff8 HEAD@{30}: rebase -i (start): checkout 81b8c47
+908eff8 HEAD@{31}: commit: Add hw3_file3.txt
+81b8c47 HEAD@{32}: commit: Add hw3_file2.txt
+b50c9e7 HEAD@{33}: reset: moving to HEAD~1
+b96093e HEAD@{34}: commit: Update hw3_file1.txt
+b50c9e7 HEAD@{35}: reset: moving to HEAD~1
+5256650 HEAD@{36}: commit: Update hw3_file1.txt
+b50c9e7 HEAD@{37}: reset: moving to HEAD~1
+5793a80 HEAD@{38}: commit: Update hw3_file1.txt
+b50c9e7 HEAD@{39}: reset: moving to HEAD~1
+bbaabcd HEAD@{40}: commit: empty commit
+b50c9e7 HEAD@{41}: commit (amend): Add new file, and update it with amend
+7380381 HEAD@{42}: commit: Add new file
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{43}: checkout: moving from master to hw3_feature1
+daf1f70 (origin/master, origin/HEAD, master) HEAD@{44}: clone: from https://github.com/vladlevitski/gl-procamp-hw.git
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ # 6. Rebase one branch onto the other
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature1 -> origin)
+λ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (master -> origin)
+λ git checkout -b hw3_feature3
+Switched to a new branch 'hw3_feature3'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ touch hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git add hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git commit -m"Add hw3_file5.txt on hw3_feature3 branch"
+[hw3_feature3 7796b2c] Add hw3_file5.txt on hw3_feature3 branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git checkout -b "hw3_feature4"
+Switched to a new branch 'hw3_feature4'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature4 -> origin)
+λ git checkout -
+Switched to branch 'hw3_feature3'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git status
+On branch hw3_feature3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file5.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git diff hw3_file5.txt
+diff --git a/hw3_file5.txt b/hw3_file5.txt
+index e69de29..d800886 100644
+--- a/hw3_file5.txt
++++ b/hw3_file5.txt
+@@ -0,0 +1 @@
++123
+\ No newline at end of file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git commit hw3_file5.txt -m"update in file"
+[hw3_feature3 3453fda] update in file
+ 1 file changed, 1 insertion(+)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git checkout hw3_feature4
+Switched to branch 'hw3_feature4'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature4 -> origin)
+λ git rebase hw3_feature3
+First, rewinding head to replay your work on top of it...
+Fast-forwarded hw3_feature4 to hw3_feature3.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature4 -> origin)
+λ git log --oneline -n 5
+3453fda (HEAD -> hw3_feature4, hw3_feature3) update in file
+7796b2c Add hw3_file5.txt on hw3_feature3 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+ae62d39 Merged stashed changes and added new file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature4 -> origin)
+λ # 7. Use pull --rebase
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature4 -> origin)
+λ git checkout -
+Switched to branch 'hw3_feature3'
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git push -u origin hw3_feature3:hw3_feature3
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 484 bytes | 161.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote:
+remote: Create a pull request for 'hw3_feature3' on GitHub by visiting:
+remote:      https://github.com/vladlevitski/gl-procamp-hw/pull/new/hw3_feature3
+remote:
+To https://github.com/vladlevitski/gl-procamp-hw.git
+ * [new branch]      hw3_feature3 -> hw3_feature3
+Branch 'hw3_feature3' set up to track remote branch 'hw3_feature3' from 'origin'.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ cd ..\another_user\gl-procamp-hw\
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (master -> origin)
+λ git fetch
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 5), reused 9 (delta 4), pack-reused 0
+Unpacking objects: 100% (10/10), done.
+From https://github.com/vladlevitski/gl-procamp-hw
+ * [new branch]      hw3_feature1 -> origin/hw3_feature1
+ * [new branch]      hw3_feature3 -> origin/hw3_feature3
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (master -> origin)
+λ git checkout hw3_feature3
+Switched to a new branch 'hw3_feature3'
+Branch 'hw3_feature3' set up to track remote branch 'hw3_feature3' from 'origin'.
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (hw3_feature3 -> origin)
+λ hw3_file5.txt
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (hw3_feature3 -> origin)
+λ git status
+On branch hw3_feature3
+Your branch is up to date with 'origin/hw3_feature3'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file5.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (hw3_feature3 -> origin)
+λ git diff hw3_file5.txt
+diff --git a/hw3_file5.txt b/hw3_file5.txt
+index d800886..156626c 100644
+--- a/hw3_file5.txt
++++ b/hw3_file5.txt
+@@ -1 +1,2 @@
+-123
+\ No newline at end of file
++123
++456
+\ No newline at end of file
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (hw3_feature3 -> origin)
+λ git commit hw3_file5.txt -m"new one update in file"
+[hw3_feature3 fdb7c7c] new one update in file
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (hw3_feature3 -> origin)
+λ git push
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 278 bytes | 278.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vladlevitski/gl-procamp-hw.git
+   3453fda..fdb7c7c  hw3_feature3 -> hw3_feature3
+
+C:\Users\ezlevvl\git\another_user\gl-procamp-hw (hw3_feature3 -> origin)
+λ cd ..\..\gl-procamp-hw\
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git status
+On branch hw3_feature3
+Your branch is up to date with 'origin/hw3_feature3'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   hw3_file5.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git diff hw3_file5.txt
+diff --git a/hw3_file5.txt b/hw3_file5.txt
+index d800886..a11080a 100644
+--- a/hw3_file5.txt
++++ b/hw3_file5.txt
+@@ -1 +1,2 @@
+-123
+\ No newline at end of file
++123
++789
+\ No newline at end of file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git commit -m"Another new one update in file"
+On branch hw3_feature3
+Your branch is up to date with 'origin/hw3_feature3'.
+
+Changes not staged for commit:
+        modified:   hw3_file5.txt
+
+no changes added to commit
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git commit hw3_file5.txt -m"Another new one update in file"
+[hw3_feature3 4ce7f87] Another new one update in file
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git log --oneline -n 5
+4ce7f87 (HEAD -> hw3_feature3) Another new one update in file
+3453fda (origin/hw3_feature3, hw3_feature4) update in file
+7796b2c Add hw3_file5.txt on hw3_feature3 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+3433b21 (origin/hw2_feature1) Add console log for home work 2
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git pull --rebase
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/vladlevitski/gl-procamp-hw
+   3453fda..fdb7c7c  hw3_feature3 -> origin/hw3_feature3
+First, rewinding head to replay your work on top of it...
+Applying: Another new one update in file
+Using index info to reconstruct a base tree...
+M       hw3_file5.txt
+Falling back to patching base and 3-way merge...
+Auto-merging hw3_file5.txt
+CONFLICT (content): Merge conflict in hw3_file5.txt
+error: Failed to merge in the changes.
+hint: Use 'git am --show-current-patch' to see the failed patch
+Patch failed at 0001 Another new one update in file
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ git status
+rebase in progress; onto fdb7c7c
+You are currently rebasing branch 'hw3_feature3' on 'fdb7c7c'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   hw3_file5.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ git diff hw3_file5.txt
+diff --cc hw3_file5.txt
+index 156626c,a11080a..0000000
+--- a/hw3_file5.txt
++++ b/hw3_file5.txt
+@@@ -1,2 -1,2 +1,6 @@@
+  123
+- 456
+ -789
+++<<<<<<< HEAD
+++456
+++=======
+++789
+++>>>>>>> Another new one update in file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ git diff hw3_file5.txt
+diff --cc hw3_file5.txt
+index 156626c,a11080a..0000000
+--- a/hw3_file5.txt
++++ b/hw3_file5.txt
+@@@ -1,2 -1,2 +1,3 @@@
+  123
+- 456
+ -789
+++456
+++789
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ git add hw3_file5.txt
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ git status
+rebase in progress; onto fdb7c7c
+You are currently rebasing branch 'hw3_feature3' on 'fdb7c7c'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   hw3_file5.txt
+
+
+C:\Users\ezlevvl\git\gl-procamp-hw (HEAD detached at fdb7c7c -> origin)
+λ git rebase --continue
+Applying: Another new one update in file
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git log --oneline -n 5
+e1a1334 (HEAD -> hw3_feature3) Another new one update in file
+fdb7c7c (origin/hw3_feature3) new one update in file
+3453fda (hw3_feature4) update in file
+7796b2c Add hw3_file5.txt on hw3_feature3 branch
+daf1f70 (origin/master, origin/HEAD, master) Merge pull request #3 from vladlevitski/hw2_feature1
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ # 8. Use yours, or download a public repo, investigate it with git blame.
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git push
+Username for 'https://github.com': vladlevitski
+Password for 'https://vladlevitski@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 290 bytes | 145.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/vladlevitski/gl-procamp-hw.git
+   fdb7c7c..e1a1334  hw3_feature3 -> hw3_feature3
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ git blame hw3_file5.txt
+fdb7c7ce (Vladyslav Levitski 2019-11-11 18:44:43 +0200 1) 123
+e1a13348 (Vladyslav Levitski 2019-11-11 18:47:23 +0200 2) 456
+e1a13348 (Vladyslav Levitski 2019-11-11 18:47:23 +0200 3) 789
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ # 9. Fix conflicts on cherry-pick, rebase
+
+C:\Users\ezlevvl\git\gl-procamp-hw (hw3_feature3 -> origin)
+λ # Already did the above
